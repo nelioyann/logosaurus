@@ -1,1 +1,5 @@
-# Project Y
+# Logosaurus
+
+- Japanese 
+- English
+- French

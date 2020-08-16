@@ -1,6 +1,6 @@
 {
-    "name": "Boiler",
-    "short_name": "Boiler",
+    "name": "Logosaurus",
+    "short_name": "Logosaurus",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#585a79",
