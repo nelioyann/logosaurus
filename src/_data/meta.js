@@ -5,7 +5,8 @@ module.exports = {
     primary_color: "#fda312",
     twitter_name: "@nelioyann",
     site_name: "Logosaurus",
-    site_description: "Learn new languages using a paired associate technique",
-    site_url: "",
-    site_thumbnail: "/images/thumbnail.png"
+    site_description: "Learn new languages using the paired associate technique",
+    
+    site_url: "https://logosaurus.yannicknana.fr",
+    site_thumbnail: "https://logosaurus.yannicknana.fr/images/thumbnail.png"
 }
