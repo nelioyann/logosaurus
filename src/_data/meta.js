@@ -1,4 +1,5 @@
 module.exports = {
+    title: "Logosaurus",
     author_name: "Yannick nana",
     theme_color: "#171921",
     primary_color: "#fda312",
