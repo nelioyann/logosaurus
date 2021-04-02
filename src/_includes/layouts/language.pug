@@ -3,8 +3,10 @@ html(lang="en")
     include ../partials/head.pug
     body
         include ../partials/header.pug
-        ul 
-            for word in words[language]
-                li #{word[source]} : #{word[target]}
+        main
+            div !{content}
+            ol 
+                for word in words[language]
+                    li #{word[source]} : #{word[target]}
 
         include ../partials/footer.pug
