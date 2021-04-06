@@ -26,6 +26,7 @@ const afficherFeedback = message =>{
 // }
 
 
+let synth = window.speechSynthesis;
 
 
 
@@ -36,15 +37,14 @@ $$(".card").forEach((card) => {
       let targetWord = e.currentTarget.getAttribute("data-target")
       console.log(targetWord)
       let utterance = new SpeechSynthesisUtterance(targetWord);
-      
-      let voices = speechSynthesis.getVoices();
+      let voices = synth.getVoices();
       for(var i = 0; i < voices.length ; i++) {
         console.log(voices[i].lang);
       if(voices[i].lang === "en-US") {
           utterance.voice = voices[i];
-      }
-      }
-      speechSynthesis.speak(utterance);
+      }}
+      
+      synth.speak(utterance);
 
       if ($(".flipped")) {
         // lg()
