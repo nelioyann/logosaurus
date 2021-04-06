@@ -2,6 +2,7 @@
 
 *, *::before, *::after
     transform-style: preserve-3d
+    box-sizing: border-box
 
 body
     display: flex
@@ -33,6 +34,15 @@ main
     // transform: translateY(-50%)
     transform-origin: center
     transition: transform 300ms ease-in-out, opacity 1000ms ease-in-out
+    &::after
+        position: absolute
+        content: attr(data-index)
+        backface-visibility: hidden
+        bottom: 0
+        right: 0
+        font-size: 0.6em
+        background-color: var(--color-light)
+        color: var(--color-dark)
     &.visible
         opacity: 1
         transform: translateY(0)

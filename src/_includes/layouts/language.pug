@@ -5,10 +5,10 @@ html(lang="en")
         include ../partials/header.pug
         main
             h2 !{title}
-            p Click on the card to see the meaning
+            p Click on the card to hear the pronunciation. 
             ul.cards
-                for word in words[language]
-                    li.card(data-target=word[target])
+                for word, index in words[language]
+                    li.card(data-target=word[target], data-source=word[source], data-index=index+1)
                         .front 
                             span #{word[source]}
                         .back 
