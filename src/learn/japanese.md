@@ -7,4 +7,3 @@ target: en
 tags: language
 ---
 
-## Most frequent japanese words

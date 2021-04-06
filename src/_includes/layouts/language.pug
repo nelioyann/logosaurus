@@ -4,9 +4,17 @@ html(lang="en")
     body
         include ../partials/header.pug
         main
-            div !{content}
-            ol 
+            h2 !{title}
+            p Click on the card to see the meaning
+            ul.cards
                 for word in words[language]
-                    li #{word[source]} : #{word[target]}
-
+                    li.card(data-target=word[target])
+                        .front 
+                            span #{word[source]}
+                        .back 
+                            span #{word[target]}
+            select#voiceSelect
+        script(src="/scripts/script.js") 
+        script(src="/scripts/observer.js") 
+        script(src="/scripts/speech.js") 
         include ../partials/footer.pug

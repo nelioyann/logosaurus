@@ -1,9 +1,53 @@
 @import 'fonts','reset','variables','mixins','base'
 
+*, *::before, *::after
+    transform-style: preserve-3d
 
 body
     display: flex
     flex-direction: column
+    padding: 1em
 
 main
     flex-grow: 2
+
+.logo
+    text-decoration: none
+
+.cards
+    display: grid
+    // margin: 0
+    padding: 0
+    list-style-type: none
+    gap: 1em
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr))
+
+.card
+    // position: relative
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+    border: 1px solid white
+    cursor: pointer
+    opacity: 0
+    // transform: translateY(-50%)
+    transform-origin: center
+    transition: transform 300ms ease-in-out, opacity 1000ms ease-in-out
+    &.visible
+        opacity: 1
+        transform: translateY(0)
+    &.flipped
+        transform: rotateY(180deg)
+    .front, .back
+        // position: absolute
+        min-height: 10em
+        grid-row: 1
+        grid-column: 1
+        display: grid
+        place-items: center
+        backface-visibility: hidden
+
+        // background-color: var(--color-light)
+    .back
+        transform: rotateY(180deg)
+        // backface-visibility: hidden
