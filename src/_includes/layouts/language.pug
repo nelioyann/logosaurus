@@ -3,9 +3,15 @@ html(lang="en")
     include ../partials/head.pug
     body
         include ../partials/header.pug
+        include ../partials/footer.pug
+
         main
             h2 !{title}
             p Click on the card to hear the pronunciation. 
+            .speech 
+            label(for="toggleSpeech") 
+                span.font-regular  Enable Word Reading
+                input#toggleSpeech(type="checkbox", name="toggleSpeech")
             ul.cards
                 for word, index in words[language]
                     li.card(data-target=word[target], data-source=word[source], data-index=index+1)
@@ -16,4 +22,3 @@ html(lang="en")
         script(src="/scripts/script.js") 
         script(src="/scripts/observer.js") 
         script(src="/scripts/speech.js") 
-        include ../partials/footer.pug
