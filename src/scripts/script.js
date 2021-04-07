@@ -19,7 +19,7 @@ let isEnglish = false;
 let isJapanese = false;
 
 // let synth = window.speechSynthesis;
-let isSpeech = {isEnglish, isJapanese}
+var isSpeech;
 const getVoices = () => {
   if (!speechSynthesis) {
     alert("API not supported");
@@ -40,7 +40,7 @@ const getVoices = () => {
       isJapanese = true;
     }
   }
-  console.log("voices retrieved")
+  console.log("voices retrieved", { isEnglish, isJapanese })
   return { isEnglish, isJapanese };
 };
 
@@ -48,6 +48,8 @@ $("#toggleSpeech").addEventListener("change", (e) => {
   if (e.currentTarget.checked){
     console.log("User wants speech")
     isSpeech = getVoices();
+    // console.log(isSpeech)
+
   } else{
     console.log("User doesn't want speech")
 
@@ -56,18 +58,19 @@ $("#toggleSpeech").addEventListener("change", (e) => {
 
 $$(".card").forEach((card) => {
   card.addEventListener("click", (e) => {
+    isSpeech = getVoices();
     
-
+    console.log(isSpeech)
     let targetWord = e.currentTarget.getAttribute("data-target");
     let sourceWord = e.currentTarget.getAttribute("data-source");
     // console.log(targetWord);
 
-    if (isSpeech.isJapanese && $("#toggleSpeech").checked) {
+    if (  $("#toggleSpeech").checked && isSpeech.isJapanese) {
       let utterance = new SpeechSynthesisUtterance(sourceWord);
       utterance.lang = "ja-JP";
       speechSynthesis.speak(utterance);
     }
-    if (isSpeech.isEnglish && $("#toggleSpeech").checked) {
+    if ( $("#toggleSpeech").checked && isSpeech.isEnglish) {
       let utterance = new SpeechSynthesisUtterance(targetWord);
       utterance.lang = "en-US";
       speechSynthesis.speak(utterance);
